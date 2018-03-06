@@ -1,0 +1,51 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Entity;
+
+/**
+ *
+ * @author idea
+ */
+public class film_oyuncu {
+    
+    private int film_oyuncu_id;
+    private int oyuncu_id;
+    private int film_id;
+
+    public film_oyuncu() {
+    }
+
+    public film_oyuncu(int film_oyuncu_id, int oyuncu_id, int film_id) {
+        this.film_oyuncu_id = film_oyuncu_id;
+        this.oyuncu_id = oyuncu_id;
+        this.film_id = film_id;
+    }
+
+    public int getFilm_oyuncu_id() {
+        return film_oyuncu_id;
+    }
+
+    public void setFilm_oyuncu_id(int film_oyuncu_id) {
+        this.film_oyuncu_id = film_oyuncu_id;
+    }
+
+    public int getOyuncu_id() {
+        return oyuncu_id;
+    }
+
+    public void setOyuncu_id(int oyuncu_id) {
+        this.oyuncu_id = oyuncu_id;
+    }
+
+    public int getFilm_id() {
+        return film_id;
+    }
+
+    public void setFilm_id(int film_id) {
+        this.film_id = film_id;
+    }
+    
+}

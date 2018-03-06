@@ -1,0 +1,71 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Entity;
+
+/**
+ *
+ * @author idea
+ */
+public class Seans {
+    
+    private int seans_id;
+    private int salon_id;
+    private int film_id;
+    private int saat;
+    private String dil;
+
+    public Seans() {
+    }
+
+    public Seans(int seans_id, int salon_id, int film_id, int saat, String dil) {
+        this.seans_id = seans_id;
+        this.salon_id = salon_id;
+        this.film_id = film_id;
+        this.saat = saat;
+        this.dil = dil;
+    }
+
+    public int getSeans_id() {
+        return seans_id;
+    }
+
+    public void setSeans_id(int seans_id) {
+        this.seans_id = seans_id;
+    }
+
+    public int getSalon_id() {
+        return salon_id;
+    }
+
+    public void setSalon_id(int salon_id) {
+        this.salon_id = salon_id;
+    }
+
+    public int getFilm_id() {
+        return film_id;
+    }
+
+    public void setFilm_id(int film_id) {
+        this.film_id = film_id;
+    }
+
+    public int getSaat() {
+        return saat;
+    }
+
+    public void setSaat(int saat) {
+        this.saat = saat;
+    }
+
+    public String getDil() {
+        return dil;
+    }
+
+    public void setDil(String dil) {
+        this.dil = dil;
+    }
+    
+}

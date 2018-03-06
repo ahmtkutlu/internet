@@ -1,0 +1,51 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Entity;
+
+/**
+ *
+ * @author idea
+ */
+public class Basrol {
+    
+    private int basrol_id;
+    private int oyuncu_id;
+    private int film_id;
+
+    public Basrol() {
+    }
+
+    public Basrol(int basrol_id, int oyuncu_id, int film_id) {
+        this.basrol_id = basrol_id;
+        this.oyuncu_id = oyuncu_id;
+        this.film_id = film_id;
+    }
+
+    public int getBasrol_id() {
+        return basrol_id;
+    }
+
+    public void setBasrol_id(int basrol_id) {
+        this.basrol_id = basrol_id;
+    }
+
+    public int getOyuncu_id() {
+        return oyuncu_id;
+    }
+
+    public void setOyuncu_id(int oyuncu_id) {
+        this.oyuncu_id = oyuncu_id;
+    }
+
+    public int getFilm_id() {
+        return film_id;
+    }
+
+    public void setFilm_id(int film_id) {
+        this.film_id = film_id;
+    }
+    
+}

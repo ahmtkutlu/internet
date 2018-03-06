@@ -1,0 +1,52 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Entity;
+
+/**
+ *
+ * @author idea
+ */
+public class Salon {
+    
+    private int salon_id;
+    private String title;
+    private String kapasite;
+
+    public Salon() {
+    }
+
+    public Salon(int salon_id, String title, String kapasite) {
+        this.salon_id = salon_id;
+        this.title = title;
+        this.kapasite = kapasite;
+    }
+
+    public int getSalon_id() {
+        return salon_id;
+    }
+
+    public void setSalon_id(int salon_id) {
+        this.salon_id = salon_id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getKapasite() {
+        return kapasite;
+    }
+
+    public void setKapasite(String kapasite) {
+        this.kapasite = kapasite;
+    }
+    
+    
+}

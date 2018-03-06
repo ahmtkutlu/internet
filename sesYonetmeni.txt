@@ -1,0 +1,61 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Entity;
+
+/**
+ *
+ * @author idea
+ */
+public class sesYonetmeni {
+    
+    private int sesyonetmeni_id;
+    private String sesyonetmeni_adi;
+    private String sesyonetmeni_soyadi;
+    private String sesyonetmeni_cinsiyet;
+
+    public sesYonetmeni() {
+    }
+
+    public sesYonetmeni(int sesyonetmeni_id, String sesyonetmeni_adi, String sesyonetmeni_soyadi, String sesyonetmeni_cinsiyet) {
+        this.sesyonetmeni_id = sesyonetmeni_id;
+        this.sesyonetmeni_adi = sesyonetmeni_adi;
+        this.sesyonetmeni_soyadi = sesyonetmeni_soyadi;
+        this.sesyonetmeni_cinsiyet = sesyonetmeni_cinsiyet;
+    }
+
+    public int getSesyonetmeni_id() {
+        return sesyonetmeni_id;
+    }
+
+    public void setSesyonetmeni_id(int sesyonetmeni_id) {
+        this.sesyonetmeni_id = sesyonetmeni_id;
+    }
+
+    public String getSesyonetmeni_adi() {
+        return sesyonetmeni_adi;
+    }
+
+    public void setSesyonetmeni_adi(String sesyonetmeni_adi) {
+        this.sesyonetmeni_adi = sesyonetmeni_adi;
+    }
+
+    public String getSesyonetmeni_soyadi() {
+        return sesyonetmeni_soyadi;
+    }
+
+    public void setSesyonetmeni_soyadi(String sesyonetmeni_soyadi) {
+        this.sesyonetmeni_soyadi = sesyonetmeni_soyadi;
+    }
+
+    public String getSesyonetmeni_cinsiyet() {
+        return sesyonetmeni_cinsiyet;
+    }
+
+    public void setSesyonetmeni_cinsiyet(String sesyonetmeni_cinsiyet) {
+        this.sesyonetmeni_cinsiyet = sesyonetmeni_cinsiyet;
+    }
+    
+}

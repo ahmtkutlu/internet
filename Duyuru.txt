@@ -1,0 +1,71 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Entity;
+
+/**
+ *
+ * @author idea
+ */
+public class Duyuru {
+    
+    private int duyuru_id;
+    private String title;
+    private String icerik; 
+    private int baslangicTarihi;   
+    private String bitisTarihi;
+
+    public Duyuru() {
+    }
+
+    public Duyuru(int duyuru_id, String title, String icerik, int baslangicTarihi, String bitisTarihi) {
+        this.duyuru_id = duyuru_id;
+        this.title = title;
+        this.icerik = icerik;
+        this.baslangicTarihi = baslangicTarihi;
+        this.bitisTarihi = bitisTarihi;
+    }
+
+    public int getDuyuru_id() {
+        return duyuru_id;
+    }
+
+    public void setDuyuru_id(int duyuru_id) {
+        this.duyuru_id = duyuru_id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getIcerik() {
+        return icerik;
+    }
+
+    public void setIcerik(String icerik) {
+        this.icerik = icerik;
+    }
+
+    public int getBaslangicTarihi() {
+        return baslangicTarihi;
+    }
+
+    public void setBaslangicTarihi(int baslangicTarihi) {
+        this.baslangicTarihi = baslangicTarihi;
+    }
+
+    public String getBitisTarihi() {
+        return bitisTarihi;
+    }
+
+    public void setBitisTarihi(String bitisTarihi) {
+        this.bitisTarihi = bitisTarihi;
+    }
+    
+}
