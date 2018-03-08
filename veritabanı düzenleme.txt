@@ -1,0 +1,46 @@
+create table duyuru(duyuru_id int primary key,baslik varchar(50),icerik varchar(1000),baslangicTarihi date,bitisTarihi date);
+
+create table user(user_id int primary key,user_ad varchar(50),user_soyad varchar(50),mail varchar(50),sifre varchar(50),admin int );
+
+create table yapimci(yapimci_id int primary key,yapimci_adi varchar(50),kurulus_tarihi varchar(50),mail varchar(50));
+
+--------create table sinema(sinema_id int primary key,sinema_ad varchar(50),sinema_adres varchar(50), telefon_no decimal);
+
+create table salon(salon_id int primary key,sinema_id int references sinema(sinema_id),title varchar(50),kapasite int);
+
+create table film_yonetmeni(filmyonetmen_id int primary key,yonetmen_ad varchar(50),yonetmen_soyad varchar(50),yonetmen_cinsiyet varchar(5));
+
+
+
+create table filmler(
+film_id int primary key,
+film_ad varchar(50),
+ýmdb_puani float,
+sure int ,
+butce int,
+yil int,
+filmyonetmen_id int references film_yonetmeni(filmyonetmen_id),
+yapimci_id int references yapimci(yapimci_id),
+film_detay varchar(1000));-----------------------------------------------------------------------------------------------FÝLM AFÝÞÝ SÜTÜNU EKLE
+
+
+create table seans(seans_id int primary key,
+salon_id int references salon(salon_id),
+saat float(BURAYA HANGÝ VERÝ TÝPÝNÝN GÝRÝLECEÐÝNÝ KONUÞALIM),---------------------------------------------
+film_id int references filmler(film_id),);
+
+
+create table yorum(yorum_id int primary key,
+film_id int references filmler(film_id),
+user_id int references user(user_id),icerik varchar(200),yorumOlusturma_tarihi date);
+
+create table oyuncu(oyuncu_id int primary key,ad varchar(50),soyad varchar(50),yas int, cinsiyet varchar(5));------------OYUNCURESÝM SÜTÜNU EKLE
+
+create table kategori(kategori_id int primary key,kategori_ad varchar(20));
+
+create table galeri(medya_id int primary key,media blob);-------------------------------------------------------------EKSÝK
+
+
+
+
+
