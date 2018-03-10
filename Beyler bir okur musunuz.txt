@@ -1,0 +1,3 @@
+Dosya eklerken; commite kimin eklediðini, ne eklediðini yazýn birbirine karýþmasýn.
+
+Orneðin: git commit -m "Veri tabaný tablolarý / ahmet" 
