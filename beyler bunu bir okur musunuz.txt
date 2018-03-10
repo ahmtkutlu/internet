@@ -1,0 +1,5 @@
+dosya eklerken commite kimin eklediðini, ne ekledðini yazýn valla kafam çok karýþtý.
+
+Örneðin
+
+git commit -m "Veri tabaný tablolarý / ahmet"
