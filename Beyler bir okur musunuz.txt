@@ -1,4 +1,0 @@
-Dosya eklerken; commite kimin eklediğini, ne eklediğini yazın birbirine karışmasın.
-
-Orneğin: git commit -m "Veri tabanı tabloları / ahmet" 
-katılıyorum/osman :)
