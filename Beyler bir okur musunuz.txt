@@ -1,3 +1,4 @@
-Dosya eklerken; commite kimin eklediğini, ne eklediğini yazın birbirine karışmasın.
+Dosya eklerken; commite kimin eklediÄŸini, ne eklediÄŸini yazÄ±n birbirine karÄ±ÅŸmasÄ±n.
 
-Orneğin: git commit -m "Veri tabanı tabloları / ahmet" 
+OrneÄŸin: git commit -m "Veri tabanÄ± tablolarÄ± / ahmet" 
+katÄ±lÄ±yorum/osman :)
