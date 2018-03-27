@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="js" name="jquery-3.3.1.min.js"/>
+        <h:outputScript library="js" name="bootstrap.js"/>
+
+
+    </h:head> 
+    <h:body>
+
+        <nav class="collapse navbar-expand-lg navbar-light">
+            <h:form>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <h:commandLink action="#{navigationController.goToPage('film')}" value="Film" styleClass="nav-link"/>
+                        </li>
+                        <li class="nav-item">
+                            <h:commandLink action="#{navigationController.goToPage('oyuncu')}" value="Oyuncu" styleClass="nav-link"/>
+                        </li>
+                    </ul>
+                </div>
+            </h:form>
+        </nav>
+
+        <div class="container">
+            <h3>Film Listesi</h3>
+            <h:dataTable styleClass="table table-striped table-hover" value="#{filmController.filmList}" var="film">
+                <h:column>
+                    <f:facet name="header">FILM ID</f:facet>
+                        #{film.idfilmler}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">FILM ADI</f:facet>
+                        #{film.film_adi}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">ICERİK</f:facet>
+                        #{film.icerik}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">YAPIMCI</f:facet>
+                        #{film.yapimci.yapimci_adi}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">YONETMEN ADI</f:facet>
+                        #{film.yonetmen.yonetmen_ad}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">KATEGORİLER</f:facet>
+                    <ul class="list-group">
+                        <ui:repeat value="#{film.kategoriList}" var="kategori">
+                            <li class="list-group-item">#{kategori.kategori_adi}</li>
+                        </ui:repeat>
+                    </ul>
+                        
+                </h:column>
+                <h:column>
+                    <f:facet name="header">OYUNCULAR</f:facet>
+                    <ul class="list-group">
+                        <ui:repeat value="#{film.oyuncuList}" var="oyuncu">
+                            <li class="list-group-item">#{oyuncu.ad}#{oyuncu.soyad}</li>
+                        </ui:repeat>
+                    </ul>
+                        
+                </h:column>
+            </h:dataTable>
+
+        </div>
+    </h:body>
+</html>
+
