@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="js" name="jquery-3.3.1.min.js"/>
+        <h:outputScript library="js" name="bootstrap.js"/>
+
+
+    </h:head> 
+    <h:body>
+
+        <nav class="collapse navbar-expand-lg navbar-light">
+            <h:form>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <h:commandLink action="#{navigationController.goToPage('film')}" value="Film" styleClass="nav-link"/>
+                        </li>
+                        <li class="nav-item">
+                            <h:commandLink action="#{navigationController.goToPage('oyuncu')}" value="Oyuncu" styleClass="nav-link"/>
+                        </li>
+                    </ul>
+                </div>
+            </h:form>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h:form>
+                        <h3>Kategori Listesi</h3>
+                        <h:dataTable styleClass="table table-striped table-hover" value="#{kategoriController.kategoriList}" var="kategori">
+                            <h:column>
+                                <f:facet name="header">KATEGORİ ID</f:facet>
+                                    #{kategori.idkategori}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">KATEGORİ ADI</f:facet>
+                                <h:commandLink action="#{kategoriController.updateForm(kategori)}" value="#{kategori.kategori_adi}" />
+
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">SİL</f:facet>
+
+                                <h:commandButton styleClass="btn btn-sm btn-danger" action="#{kategoriController.sil(kategori)}" value="Sil"/>
+
+                            </h:column>
+
+                        </h:dataTable>
+                    </h:form>
+                </div>
+                <div class="col-md-5">
+                    <h:form>
+                        <div class="form-group">
+                            <h:inputHidden value="#{kategoriController.kategori.idkategori}"/>
+                            <label for="inputAd">Kategori Adı</label>
+                            <h:inputText styleClass="form-control" value="#{kategoriController.kategori.kategori_adi}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:commandButton rendered="#{kategoriController.kategori.idkategori!=null}" styleClass="btn btn-primary" value="Güncelle" action="#{kategoriController.update}"/>
+                            <h:commandButton rendered="#{kategoriController.kategori.idkategori==null}" styleClass="btn btn-primary" value="Kaydet" action="#{kategoriController.create}"/>
+                        </div>
+                        <div class="form-group">
+                            <div class="btn-group"></div>
+                            <h:commandButton  action="#{navigationController.goToPage('index')}" value="GERİ" styleClass="btn btn-secondary" />  
+                        </div>
+                    </h:form>  
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </h:body>
+</html>
+
