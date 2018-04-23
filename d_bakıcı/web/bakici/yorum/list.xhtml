@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+    </h:head>
+    <body>
+        <div class="container">
+        <h:form>
+           <h:dataTable class="table" value="#{yrm.list}" var="liste" styleClass="table table-striped">
+                    <h:column>
+                        <f:facet name="header">YORUM İD:</f:facet>
+                        #{liste.y_id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">YORUMCU AD:</f:facet>
+                        #{liste.y_ad}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">YORUM:</f:facet>
+                        #{liste.y_yorum}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">BAKICI İD:</f:facet>
+                        #{liste.arayan_id}
+                    </h:column>
+                    
+                   
+               <h:column >
+                   <h:commandButton styleClass="btn btn-danger" value="DELETE" action="#{yrm.delete(liste.y_id)}"/>   
+                                </h:column>
+                </h:dataTable>
+           <h:commandButton  styleClass="btn btn-success" value="UPDATE" action="/bakici/yorum/update?faces-redirect=true" />
+     <b/>     
+
+           <h:commandButton  styleClass="btn btn-info" value="CREATE" action="/bakici/yorum/create?faces-redirect=true" />
+
+ 
+       
+        </h:form>
+            
+            </div>
+       
+    </body>
+
+</ui:composition>

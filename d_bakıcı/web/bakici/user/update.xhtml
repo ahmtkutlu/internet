@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <body>
+        <h:form>
+           
+            <br/>
+            <div class="form-group">
+                <label for="inputName"> USER İD :</label>
+                
+             <h:inputText styleClass="form-control"   value="#{user.r.user_id}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> USER PAROLA :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{user.r.user_parola}" /><br/>
+            </div>
+             <br/>
+              <div class="form-group">
+                <label for="inputName"> USER AD SOYAD :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{user.r.user_ad_soyad}" /><br/>
+            </div>
+             <br/>
+             
+              <div class="form-group">
+                <label for="inputName"> USER EMAİL :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{user.r.user_email}" /><br/>
+            </div>
+             <br/>
+            <h:commandButton styleClass="btn btn-primary" value="UPDATE" action="#{user.update()}" />
+             
+        </h:form>
+       
+    </body>
+
+</ui:composition>

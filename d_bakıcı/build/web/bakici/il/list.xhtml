@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+    </h:head>
+    <body>
+        <div class="container">
+        <h:form>
+            <h:dataTable class="table table-striped" value="#{il.list}" var="liste"
+                                      styleClass="table table-striped">
+                <h:column>
+                    <f:facet name="header">İL İD</f:facet>
+                   #{liste.il_id}  
+
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">İL AD</f:facet>
+                    #{liste.il_ad}
+                </h:column>
+                 <h:column>
+                     <ul>
+                    <f:facet name="header">İLÇE AD</f:facet>
+                    <ui:repeat value="#{liste.ilcesi}" var="ilce">
+                        <li>#{ilce.ilce_ad}</li>
+                    </ui:repeat>
+                        
+                     </ul>
+                </h:column>
+                <h:column>
+                    <h:commandButton styleClass="btn btn-danger" value="DELETE" action="#{il.delete(liste)}" />
+
+                </h:column>
+            
+            </h:dataTable> 
+           <h:commandButton  styleClass="btn btn-success" value="UPDATE" action="/bakici/il/update?faces-redirect=true" />
+     <b/>     <b/>
+
+           <h:commandButton  styleClass="btn btn-info" value="CREATE" action="/bakici/il/create?faces-redirect=true" />
+
+ 
+       
+        </h:form>
+            
+            </div>
+       
+    </body>
+
+</ui:composition>

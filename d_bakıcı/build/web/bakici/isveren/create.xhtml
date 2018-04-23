@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <body>
+        <h:form>
+            <div class="form-group">
+                <label for="inputName"> İŞ VEREN İD   :</label>
+                <h:inputText styleClass="form-control" value="#{ver.v.isveren_id}" /> 
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="inputName"> İŞ VEREN AD :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ver.v.isveren_ad}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> İŞ VEREN SOYAD :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ver.v.isveren_soyad}" /><br/>
+            </div>
+            
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> İLETİŞİM :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ver.v.isveren_iletisim}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> SİGORTA :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ver.v.isveren_sigorta}" /><br/>
+            </div>
+             <br/>
+             
+             <div class="form-group">
+                <label for="inputName"> SERVİS :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ver.v.isveren_servis}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> AÇIKLAMA :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ver.v.aciklama}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> İLCE İD :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ver.v.ilce_id}" /><br/>
+            </div>
+             <br/>
+             <h:commandButton styleClass="btn btn-primary" value="CREATE" action="#{ver.create()}" />
+             
+        </h:form>
+       
+    </body>
+
+</ui:composition>

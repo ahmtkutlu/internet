@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+    </h:head>
+    <body>
+        <div class="container">
+        <h:form>
+           <h:dataTable class="table" value="#{ref.list}" var="liste" styleClass="table table-striped">
+                    <h:column>
+                        <f:facet name="header">REFERANS İD:</f:facet>
+                        #{liste.ref_id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">REFERANS AD:</f:facet>
+                        #{liste.ref_ad}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">REFERANS SOYAD</f:facet>
+                        #{liste.ref_soyad}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">BAKICI İD</f:facet>
+                        #{liste.arayan_id}
+                    </h:column>
+                    
+                   
+               <h:column >
+                   <h:commandButton styleClass="btn btn-danger" value="DELETE" action="#{ref.delete(liste.ref_id)}"/>   
+                                </h:column>
+                </h:dataTable>
+           <h:commandButton  styleClass="btn btn-success" value="UPDATE" action="/bakici/referans/update?faces-redirect=true" />
+     <b/>     
+
+           <h:commandButton  styleClass="btn btn-info" value="CREATE" action="/bakici/referans/create?faces-redirect=true" />
+
+ 
+       
+        </h:form>
+            
+            </div>
+       
+    </body>
+
+</ui:composition>

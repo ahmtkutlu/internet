@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <body>
+        <h:form>
+            <h:dataTable class="table" value="#{il.list}" var="liste"
+                                      styleClass="table table-striped">
+                <h:column>
+                    <f:facet name="header">İL İD</f:facet>
+                    #{liste.il_id}
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">İL AD</f:facet>
+                    #{liste.il_ad}
+                </h:column>
+            
+            </h:dataTable>
+        </h:form>
+       
+    </body>
+
+</ui:composition>

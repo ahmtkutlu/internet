@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <body>
+        <h:form>
+            <div class="form-group">
+                <label for="inputName"> KİSİ İD   :</label>
+                <h:inputText styleClass="form-control" value="#{kisi.k.kisi_id}" /> 
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="inputName"> KİSİ AD :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{kisi.k.kisi_ad}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> KİSİ SOYAD :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{kisi.k.kisi_soyad}" /><br/>
+            </div>
+            
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> YAS:</label>
+                
+                <h:inputText styleClass="form-control"   value="#{kisi.k.kisi_yas}" /><br/>
+            </div>
+           
+           
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> AÇIKLAMA :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{kisi.k.aciklama}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> İSVEREN İD :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{kisi.k.isveren_id}" /><br/>
+            </div>
+             <br/>
+             <h:commandButton styleClass="btn btn-primary" value="UPDATE" action="#{kisi.update()}" />
+             
+        </h:form>
+       
+    </body>
+
+</ui:composition>

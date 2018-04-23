@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+    </h:head>
+    <body>
+        <div class="container">
+        <h:form>
+          <h:dataTable class="table" value="#{ara.list}" var="liste"
+                                      styleClass="table table-striped">
+                <h:column>
+                    <f:facet name="header">BAKICI İD</f:facet>
+                    #{liste.arayan_id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">BAKICI AD</f:facet>
+                    #{liste.arayan_ad}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">BAKICI SOYAD</f:facet>
+                    #{liste.arayan_soyad}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">YAS </f:facet>
+                    #{liste.yas}
+                </h:column>
+                              
+                <h:column>
+                    <f:facet name="header">UYRUK</f:facet>
+                    #{liste.uyruk}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">EMAİL</f:facet>
+                    #{liste.mail}
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">İLETİŞİM</f:facet>
+                    #{liste.iletisim}
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">AÇIKLAMA</f:facet>
+                    #{liste.aciklama}
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">İLCESİ</f:facet>
+                    #{liste.ilce_id}
+                </h:column>
+                  <h:column>
+                     <ul>
+                    <f:facet name="header">ÇALIŞTIGI ALANLAR</f:facet>
+                    <ui:repeat value="#{liste.kategorisi}" var="kat">
+                        <li>#{kat.kategori_ad}</li>
+                    </ui:repeat>
+                        
+                     </ul>
+                </h:column>
+            <h:column>
+                <h:commandButton  styleClass="btn btn-danger" value="DELETE" action="#{ara.delete(liste)}" />
+
+                </h:column>
+            </h:dataTable>
+           <h:commandButton  styleClass="btn btn-success" value="UPDATE" action="/bakici/isArayan/update?faces-redirect=true" />
+     <b/>     <b/>
+
+           <h:commandButton  styleClass="btn btn-info" value="CREATE" action="/bakici/isArayan/create?faces-redirect=true" />
+
+ 
+       
+        </h:form>
+            
+            </div>
+       
+    </body>
+
+</ui:composition>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+    </h:head>
+    <body>
+        <div class="container">
+        <h:form>
+           <h:dataTable class="table" value="#{ver.list}" var="liste" styleClass="table table-striped">
+                    <h:column>
+                        <f:facet name="header">İSVEREN İD:</f:facet>
+                        #{liste.isveren_id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">İşveren Ad:</f:facet>
+                        #{liste.isveren_ad}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">İşveren Soyad:</f:facet>
+                        #{liste.isveren_soyad}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">İletişim:</f:facet>
+                        #{liste.isveren_iletisim}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">İşveren Sigorta:</f:facet>
+                        #{liste.isveren_sigorta}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Servis:</f:facet>
+                        #{liste.isveren_servis}
+                    </h:column>
+                     <h:column>
+                        <f:facet name="header">Açıklama:</f:facet>
+                        #{liste.aciklama}
+                    </h:column>
+                     <h:column>
+                        <f:facet name="header">İlçe Id:</f:facet>
+                        #{liste.ilce_id}
+                    </h:column>
+                    <h:column >
+                                     <ul>
+                                         <f:facet name="header">Kişi Ad:</f:facet>
+                                         <ui:repeat value="#{liste.kisi}" var="ki">
+                                             <li>#{ki.kisi_ad}</li>
+                                         </ui:repeat>
+                                     </ul>
+                                </h:column>
+               <h:column >
+                   <h:commandButton styleClass="btn btn-danger" value="DELETE" action="#{ver.delete(liste)}"/>   
+                                </h:column>
+                </h:dataTable>
+           <h:commandButton  styleClass="btn btn-success" value="UPDATE" action="/bakici/isveren/update?faces-redirect=true" />
+     <b/>     
+
+           <h:commandButton  styleClass="btn btn-info" value="CREATE" action="/bakici/isveren/create?faces-redirect=true" />
+
+ 
+       
+        </h:form>
+            
+            </div>
+       
+    </body>
+
+</ui:composition>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <body>
+        <h:form>
+            <div class="form-group">
+                <label for="inputName"> BAKICI İD   :</label>
+                <h:inputText styleClass="form-control" value="#{ara.ara.arayan_id}" /> 
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="inputName"> BAKICI AD :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ara.ara.arayan_ad}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> BAKICI SOYAD :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ara.ara.arayan_soyad}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> YAS :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ara.ara.yas}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> UYRUK :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ara.ara.uyruk}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> EMAİL :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ara.ara.mail}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> İLETİŞİM :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ara.ara.iletisim}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> AÇIKLAMA :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ara.ara.aciklama}" /><br/>
+            </div>
+             <br/>
+             <div class="form-group">
+                <label for="inputName"> İLCE İD :</label>
+                
+                <h:inputText styleClass="form-control"   value="#{ara.ara.ilce_id}" /><br/>
+            </div>
+             <br/>
+             <h:commandButton styleClass="btn btn-primary" value="UPDATE" action="#{ara.update()}" />
+             
+        </h:form>
+       
+    </body>
+
+</ui:composition>
