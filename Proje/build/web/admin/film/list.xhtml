@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+    </h:head>
+    <body>
+        <div class="container">
+            <h:form>
+                <h:dataTable class="table" value="#{film.filmlist}" var="liste"
+                             styleClass="table table-striped">
+                    <h:column>
+                        <f:facet name="header">FİLM İD</f:facet>
+                            #{liste.film_id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">FİLM AD</f:facet>
+                            #{liste.film_adi}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">FİLM SURESİ</f:facet>
+                            #{liste.sure}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">İMDB PUANI </f:facet>
+                            #{liste.imdb_puani}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">İÇERİK</f:facet>
+                            #{liste.icerik}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">YAPIMCISI</f:facet>
+                            #{liste.yapimci_id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">YÖNETMENİ</f:facet>
+                            #{liste.yonetmen_id}
+                    </h:column>
+                    <h:column>
+                        <ul>
+                            <f:facet name="header">KATEGORİ</f:facet>
+                            <ui:repeat value="#{liste.kategorisi}" var="kategori">
+                                <li>#{kategori.kategori_ad}</li>
+                            </ui:repeat>
+
+                        </ul>
+                    </h:column>
+                    <h:column>
+                        <ul>
+                            <f:facet name="header">OYUNCUlAR</f:facet>
+                            <ui:repeat value="#{liste.oyuncusu}" var="oyuncu">
+                                <li>#{oyuncu.ad}</li>
+                            </ui:repeat>
+
+                        </ul>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton  styleClass="btn btn-danger" value="DELETE"  action="#{film.delete(liste)}"/>
+
+                    </h:column>
+                </h:dataTable>
+                <h:commandButton  styleClass="btn btn-success" value="UPDATE" action="/sinemaa/film/update?faces-redirect=true" />
+                <b/>     <b/>
+
+                <h:commandButton  styleClass="btn btn-info" value="CREATE" action="/sinemaa/film/create?faces-redirect=true" />
+
+
+
+            </h:form>
+
+        </div>
+
+    </body>
+
+</ui:composition>

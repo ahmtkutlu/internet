@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <body>
+        <h:form>
+            <div class="form-group">
+                <label for="inputName"> SİNEMA İD   :</label>
+                <h:inputText styleClass="form-control" value="#{sinema.s.sinema_id}" /> 
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="inputName"> KURULUŞ TARİHİ :</label>
+
+                <h:inputText styleClass="form-control"   value="#{sinema.s.kurulus_yili}" /><br/>
+            </div>
+            <br/>
+            <h:commandButton styleClass="btn btn-primary" value="CREATE" action="#{sinema.create()}" />
+            <li><h:commandLink  styleClass="btn btn-primary" action="/sinemaa/sinema/list?faces-redirect=true">GERİ</h:commandLink></li>
+
+        </h:form>
+
+    </body>
+
+</ui:composition>

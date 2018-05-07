@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+    </h:head>
+    <body>
+        <div class="container">
+        <h:form>
+            <h:dataTable class="table table-striped" value="#{yonetmen.yonetmenlist}" var="liste"
+                                      styleClass="table table-striped">
+                <h:column>
+                    <f:facet name="header">YÖNETMEN İD</f:facet>
+                   #{liste.yonetmen_id}  
+
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">YÖNETMEN AD</f:facet>
+                    #{liste.yonetmen_adi}
+                </h:column>
+                 <h:column>
+                     <ul>
+                    <f:facet name="header">FİLM AD</f:facet>
+                    <ui:repeat value="#{liste.filmi}" var="film">
+                        <li>#{film.film_adi}</li>
+                    </ui:repeat>
+                        
+                     </ul>
+                </h:column>
+                <h:column>
+                    <h:commandButton styleClass="btn btn-danger" value="DELETE" action="#{yonetmen.delete(liste)}" />
+
+                </h:column>
+            
+            </h:dataTable> 
+           <h:commandButton  styleClass="btn btn-success" value="UPDATE" action="/sinemaa/yonetmen/update?faces-redirect=true" />
+     <b/>     <b/>
+
+           <h:commandButton  styleClass="btn btn-info" value="CREATE" action="/sinema/yonetmen/create?faces-redirect=true" />
+
+ 
+       
+        </h:form>
+            
+            </div>
+       
+    </body>
+
+</ui:composition>

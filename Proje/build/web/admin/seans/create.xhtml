@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <body>
+        <h:form>
+
+
+            
+
+            
+            <div class="form-group">
+                <label for="inputName"> SAAT</label>
+
+                <h:inputText styleClass="form-control"   value="#{seans.s.saat}" /><br/>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="inputName"> FİLM İD</label>
+
+                <h:inputText styleClass="form-control"   value="#{seans.s.film_id}" /><br/>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label for="inputName"> SALON İD</label>
+
+                <h:inputText styleClass="form-control"   value="#{seans.s.salon_id}" /><br/>
+            </div>
+
+            <h:commandButton styleClass="btn btn-primary" value="CREATE" action="#{seans.create()}" />
+            <li><h:commandLink  styleClass="btn btn-primary" action="/sinemaa/seans/list?faces-redirect=true">GERİ</h:commandLink></li>
+        </h:form>
+
+    </body>
+
+</ui:composition>

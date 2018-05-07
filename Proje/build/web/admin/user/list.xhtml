@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+
+		<ui:composition template="/admin/template/layout.xhtml">
+			<ui:define name="content">
+				<div class="container">
+					<h:commandLink action="#{userController.createForm()}" value="NEW USER"></h:commandLink>
+					<hr />
+					<h:dataTable value="#{userController.userList}" var="u" styleClass="table table-stripped">
+						<h:column>
+							<f:facet name="header">ID</f:facet>
+							#{u.id}
+						</h:column>
+						<h:column>
+							<f:facet name="header">EMAIL</f:facet>
+								#{u.email}
+						</h:column>
+						<h:column>
+							<f:facet name="header">NAME SURNAME</f:facet>
+								#{u.name_surname}
+						</h:column>
+						<h:column>
+							<f:facet name="header">CREATED</f:facet>
+								#{p.created}
+						</h:column>
+						<h:column>
+							<f:facet name="header">UPDATED</f:facet>
+								#{p.updated}
+						</h:column>
+						<h:column>
+							<f:facet name="header">ADMINISTRATION</f:facet>
+							<h:commandButton action="#{userController.updateForm(u)}" value="EDIT"></h:commandButton>
+							<h:commandButton action="#{userController.delete(u)}" value="DELETE"></h:commandButton>
+						</h:column>
+					</h:dataTable>
+				</div>
+			</ui:define>
+		</ui:composition>
+    </h:body>
+</html>
+
