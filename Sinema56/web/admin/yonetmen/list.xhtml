@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/admin/template/layout.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <h:commandLink action="#{yonetmenController.createForm}" value="Yeni Yonetmen"></h:commandLink>
+                    <hr />
+                    <h:dataTable value="#{yonetmenController.listeYonetmen}" var="yonetmen" styleClass="table table-stripped">
+                       
+                        
+                        
+                        <h:column>
+                                <f:facet name="header">Yonetmen ID</f:facet>
+                              #{yonetmen.idyonetmen}
+                                    
+                             
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Yonetmen Ad</f:facet>
+                                    #{yonetmen.yonetmen_adi}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Yonetmen Soyad</f:facet>
+                                    #{yonetmen.yonetmen_soyadi}
+                            </h:column>
+                              <h:column>
+                                <f:facet name="header">Yonetmen Cinsiyet</f:facet>
+                                    #{yonetmen.yonetmen_cinsiyet}
+                            </h:column>
+                           
+                                                                                               
+                        <h:column>
+                            <f:facet name="header">İşlem</f:facet>
+                            <h:commandButton action="#{yonetmenController.updateForm(yonetmen)}" value="Güncelle" styleClass="btn btn-primary"></h:commandButton>
+                            <h:commandButton action="#{yonetmenController.delete(yonetmen)}" value="Sil" styleClass="btn btn-danger"></h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                   
+                    <div class="btn btn-group">
+                        <h:commandButton rendered="#{yonetmenController.hasPrev()}" action="#{yonetmenController.previous()}" value="önceki" styleClass="btn btn-danger"></h:commandButton>
+                        <h:commandButton rendered="#{yonetmenController.hasNext()}" action="#{yonetmenController.next()}" value="sonraki" styleClass="btn btn-primary"></h:commandButton>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/admin/template/layout.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <h:commandLink action="#{yapimciController.createForm}" value="Yeni Yapimci"></h:commandLink>
+                    <hr />
+                    <h:dataTable value="#{yapimciController.listeYapimci}" var="yapimci" styleClass="table table-stripped">
+                       
+                        
+                        
+                        <h:column>
+                                <f:facet name="header">Yapimci ID</f:facet>
+                              #{yapimci.idyapimci}                                                                 
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Yapimci Ad</f:facet>
+                                    #{yapimci.yapimci_adi}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Kurulus yili</f:facet>
+                                    #{yapimci.kurulus_yili}
+                            </h:column>
+                              <h:column>
+                                <f:facet name="header">Mail</f:facet>
+                                    #{yapimci.mail}
+                            </h:column>                        
+                                                                                               
+                        <h:column>
+                            <f:facet name="header">İşlem</f:facet>
+                            <h:commandButton action="#{yapimciController.updateForm(yapimci)}" value="Güncelle" styleClass="btn btn-primary"></h:commandButton>
+                            <h:commandButton action="#{yapimciController.delete(yapimci)}" value="Sil" styleClass="btn btn-danger"></h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                   
+                    <div class="btn btn-group">
+                        <h:commandButton rendered="#{yapimciController.hasPrev()}" action="#{yapimciController.previous()}" value="önceki" styleClass="btn btn-danger"></h:commandButton>
+                        <h:commandButton rendered="#{yapimciController.hasNext()}" action="#{yapimciController.next()}" value="sonraki" styleClass="btn btn-primary"></h:commandButton>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

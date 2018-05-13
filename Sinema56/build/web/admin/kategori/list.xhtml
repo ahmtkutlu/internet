@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/admin/template/layout.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <h:commandLink action="#{kategoriController.createForm}" value="Yeni Kategori"></h:commandLink>
+                    <hr />
+                    <h:dataTable value="#{kategoriController.listeKategori}" var="kategori" styleClass="table table-stripped">
+                       
+                        
+                        
+                        <h:column>
+                                <f:facet name="header">Kategori ID</f:facet>
+                              #{kategori.idkategori}
+                                    
+                             
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Kategori Ad</f:facet>
+                                    #{kategori.kategori_adi}
+                            </h:column>
+                           
+                                                                                               
+                        <h:column>
+                            <f:facet name="header">İşlem</f:facet>
+                            <h:commandButton action="#{kategoriController.updateForm(kategori)}" value="Güncelle" styleClass="btn btn-primary"></h:commandButton>
+                            <h:commandButton action="#{kategoriController.delete(kategori)}" value="Sil" styleClass="btn btn-danger"></h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                   
+                    <div class="btn btn-group">
+                        <h:commandButton rendered="#{kategoriController.hasPrev()}" action="#{kategoriController.previous()}" value="önceki" styleClass="btn btn-danger"></h:commandButton>
+                        <h:commandButton rendered="#{kategoriController.hasNext()}" action="#{kategoriController.next()}" value="sonraki" styleClass="btn btn-primary"></h:commandButton>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <body>
+
+        <ui:composition>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <h:commandLink action="/admin/film/list?faces-redirect=true" value="Film"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/duyuru/list?faces-redirect=true" value="Duyuru"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/galeri/galeri?faces-redirect=true" value="Galeri"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/kategori/list?faces-redirect=true" value="Kategori"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/oyuncu/list?faces-redirect=true" value="Oyuncu"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/salon/list?faces-redirect=true" value="Salon"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/seans/list?faces-redirect=true" value="Seans"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/sinema/list?faces-redirect=true" value="Sinema"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/user/list?faces-redirect=true" value="User"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/yapimci/list?faces-redirect=true" value="Yapimci"/>
+                            </li>
+                             <li>
+                                <h:commandLink action="/admin/yonetmen/list?faces-redirect=true" value="Yonetmen"/>
+                            </li>
+                             <li>
+                                <h:commandLink action="/admin/yorum/list?faces-redirect=true" value="Yorum"/>
+                            </li>
+
+                            <li>
+                                <h:commandLink action="#{loginController.Logout}" value="LogOut"/>
+                            </li>
+                        </ul>	
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </ui:composition>
+    </body>
+</html>

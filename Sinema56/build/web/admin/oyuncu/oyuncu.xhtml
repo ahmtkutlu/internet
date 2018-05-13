@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="js" name="bootstrap.js"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="/admin/template/layout.xhtml">
+            <ui:define name="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h:form id="oyuncu-table">
+                        <h:dataTable styleClass="table table-striped table-hover" value="#{oyuncuController.listeOyuncu}" var="oyuncu">
+
+                            <h:column>
+                                <f:facet name="header">Oyuncu ID</f:facet>
+                                <h:commandLink action="#{oyuncuController.updateForm(oyuncu)}" value="#{oyuncu.idoyuncu}" >
+                                    
+                                </h:commandLink>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">AD</f:facet>
+                                    #{oyuncu.ad}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">SOYAD</f:facet>
+                                    #{oyuncu.soyad}
+                            </h:column>
+                              <h:column>
+                                <f:facet name="header">YAS</f:facet>
+                                    #{oyuncu.yas}
+                            </h:column>
+                              <h:column>
+                                <f:facet name="header">CINSIYET</f:facet>
+                                    #{oyuncu.cinsiyet}
+                            </h:column>
+                            <h:column>
+                            <f:facet name="header">Islem</f:facet>
+                            <h:commandButton action="#{oyuncuController.updateForm(oyuncu)}" value="Güncelle" styleClass="btn btn-primary"></h:commandButton>
+                            <h:commandButton action="#{oyuncuController.delete}" value="Sil" styleClass="btn btn-danger"></h:commandButton>
+                        </h:column>
+                         </h:dataTable>
+                    </h:form>
+                </div>    
+                
+                
+                   <div class="col-md-5">
+                    <h:form id="oyuncu-form">
+                        
+                        <div class="form-group">
+                            <label for="oyuncu_ad">oyuncu Ad</label>
+                            <h:inputText id="oyuncu_ad" value="#{oyuncuController.oyuncu.ad}" styleClass="form-control" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="oyuncu_soyad">oyuncu Soyad</label>
+                            <h:inputText id="oyuncu_soyad" value="#{oyuncuController.oyuncu.soyad}" styleClass="form-control" />
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="oyuncu_yas">oyuncu yas</label>
+                            <h:inputText id="oyuncu_yas" value="#{oyuncuController.oyuncu.yas}" styleClass="form-control" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="oyuncu_cinsiyet">oyuncu cinsiyet</label>
+                            <h:inputText id="oyuncu_cinsiyet" value="#{oyuncuController.oyuncu.cinsiyet}" styleClass="form-control" />
+                        </div>
+                        
+                          
+                        <div class="form-group">
+                            <div class="btn-group">
+                                <h:commandButton rendered="#{oyuncuController.oyuncu.idoyuncu == null}" action="#{oyuncuController.create}" value ="Create" styleClass="btn btn-primary" >
+                                    
+                                </h:commandButton>
+                                <h:commandButton rendered="#{oyuncuController.oyuncu.idoyuncu != null}" action="#{oyuncuController.update}" value="Update" styleClass="btn btn-primary" >
+                                    
+                                </h:commandButton>
+                                <h:commandButton rendered="#{oyuncuController.oyuncu.idoyuncu != null}" action="#{oyuncuController.delete}" value="Delete" styleClass="btn btn-danger" >
+                                   
+                                </h:commandButton>
+                                <h:commandButton rendered="#{oyuncuController.oyuncu.idoyuncu != null}" action="#{oyuncuController.clearForm}" value="Clear" styleClass="btn btn-info" >
+                                   
+                                </h:commandButton>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+                
+                
+                
+                
+            </div>
+            <div class="btn btn-group">
+                <h:commandButton rendered="#{oyuncuController.hasPrev()}" action="#{oyuncuController.previous()}" value="previous" styleClass="btn btn-danger"></h:commandButton>
+                <h:commandButton rendered="#{oyuncuController.hasNext()}" action="#{oyuncuController.next()}" value="next" styleClass="btn btn-primary"></h:commandButton>
+                    </div>
+        </div>    
+       </ui:define>
+     </ui:composition>
+    </h:body>
+</html>

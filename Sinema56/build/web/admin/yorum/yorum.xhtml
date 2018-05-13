@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="js" name="bootstrap.js"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h:form id="yorum-table">
+                        <h:dataTable styleClass="table table-striped table-hover" value="#{yorumController.listeYorum}" var="yorum">
+
+                            <h:column>
+                                <f:facet name="header">Yorum ID</f:facet>
+                                <h:commandLink action="#{yorumController.updateForm(yorum)}" value="#{yorum.idyorum}" >
+                                    <f:ajax execute="@this" render="yorum-form"/>
+                                </h:commandLink>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Film Adı</f:facet>
+                                    #{yorum.film.film_adi}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Kullanıcı Mail</f:facet>
+                                    #{yorum.user.mail} 
+                            </h:column>
+                              <h:column>
+                                <f:facet name="header">Yorum</f:facet>
+                                    #{yorum.icerik}
+                            </h:column>
+                              <h:column>
+                                <f:facet name="header">Yorum Basligi</f:facet>
+                                    #{yorum.yorum_basligi}
+                            </h:column>
+                              <h:column>
+                                <f:facet name="header">Yorum Tarihi</f:facet>
+                                    #{yorum.yorum_tarihi}
+                            </h:column>
+                         </h:dataTable>
+                    </h:form>
+                </div>   
+                
+                
+                
+                
+                
+                    <div class="col-md-5">
+                    <h:form id="yorum-form">
+                        
+                       <div>
+                            <p>
+                                <label for="selectFilm">Film AD</label>
+                                <h:selectOneMenu styleClass="custom-select" id="selectFilm" value="#{yorumController.yorum.film}">
+                                    <f:selectItems  value="#{yorumController.listFilm}" var="yor" itemValue="#{yor}" itemLabel="#{yor.film_adi}"/>
+                                </h:selectOneMenu>
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <p>
+                                <label for="selectUser">User mail</label>
+                                <h:selectOneMenu styleClass="custom-select" id="selectUser" value="#{yorumController.yorum.user}">
+                                    <f:selectItems  value="#{yorumController.listUser}" var="user" itemValue="#{user}" itemLabel="#{user.mail}"/>
+                                </h:selectOneMenu>
+                            </p>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="yorum_text">Yorum</label>
+                            <h:inputText id="yorum_text" value="#{yorumController.yorum.icerik}" styleClass="form-control" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="yorum_baslik">Yorum Basligi</label>
+                            <h:inputText id="yorum_baslik" value="#{yorumController.yorum.yorum_basligi}" styleClass="form-control" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="yorum_date">Yorum Tarihi</label>
+                            <h:inputText id="yorum_date" value="#{yorumController.yorum.yorum_tarihi}" styleClass="form-control" />
+                        </div>
+                        
+                          
+                        <div class="form-group">
+                            <div class="btn-group">
+                                <h:commandButton rendered="#{yorumController.yorum.idyorum == null}" action="#{yorumController.create}" value ="Create" styleClass="btn btn-primary" >
+                                    
+                                </h:commandButton>
+                                <h:commandButton rendered="#{yorumController.yorum.idyorum != null}" action="#{yorumController.update}" value="Update" styleClass="btn btn-primary" >
+                                    
+                                </h:commandButton>
+                                <h:commandButton rendered="#{yorumController.yorum.idyorum != null}" action="#{yorumController.delete}" value="Delete" styleClass="btn btn-danger" >
+                                   
+                                </h:commandButton>
+                                <h:commandButton rendered="#{yorumController.yorum.idyorum != null}" action="#{yorumController.clearForm}" value="Clear" styleClass="btn btn-info" >
+                                   
+                                </h:commandButton>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+            </div>
+        </div>
+    </h:body>
+</html>

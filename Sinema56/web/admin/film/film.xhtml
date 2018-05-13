@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="js" name="bootstrap.js"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h:form id="film-table">
+                        <h:dataTable styleClass="table table-striped table-hover" value="#{filmController.listeFilm}" var="film">
+
+                            <h:column>
+                                <f:facet name="header">Film ID</f:facet>
+                                <h:commandLink action="#{filmController.updateForm(film)}" value="#{film.idfilmler}" >
+                                    <f:ajax execute="@this" render="film-form"/>
+                                </h:commandLink>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Yönetmen Adı</f:facet>
+                                    #{film.yonetmen.yonetmen_adi}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Yapimci Adı</f:facet>
+                                    #{film.yapimci.yapimci_adi}
+                            </h:column>
+                              <h:column>
+                                <f:facet name="header">Film Adı</f:facet>
+                                    #{film.film_adi}
+                            </h:column>
+                              <h:column>
+                                <f:facet name="header">Sure</f:facet>
+                                    #{film.sure}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Yıl</f:facet>
+                                    #{film.yil}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Imdb Puanı</f:facet>
+                                    #{film.imdb_puani}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Butce</f:facet>
+                                    #{film.butce}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Icerik</f:facet>
+                                    #{film.icerik}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Resim Path</f:facet>
+                                    #{film.galeri.resim}
+                            </h:column>
+                            
+                         </h:dataTable>
+                    </h:form>
+                </div>   
+                
+                
+                
+                
+                
+                    <div class="col-md-5">
+                    <h:form id="film-form">
+                        
+                        <div class="form-group">
+                            <label for="yonetmen_id">Yonetmen Id</label>
+                            <h:inputText id="yonetmen_id" value="#{filmController.film.yonetmen.idyonetmen}" styleClass="form-control" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="yapimci_id">Yapimci Id</label>
+                            <h:inputText id="yapimci_id" value="#{filmController.film.yapimci.idyapimci}" styleClass="form-control" />
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="film_ad">Film Ad</label>
+                            <h:inputText id="film_ad" value="#{filmController.film.film_adi}" styleClass="form-control" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sure">Sure</label>
+                            <h:inputText id="sure" value="#{filmController.film.sure}" styleClass="form-control" />
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="yil">Yıl</label>
+                            <h:inputText id="yil" value="#{filmController.film.yil}" styleClass="form-control" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="imdb">imdb</label>
+                            <h:inputText id="imdb" value="#{filmController.film.imdb_puani}" styleClass="form-control" />
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="butce">Butce</label>
+                            <h:inputText id="butce" value="#{filmController.film.butce}" styleClass="form-control" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="icerik">Icerik</label>
+                            <h:inputText id="icerik" value="#{filmController.film.icerik}" styleClass="form-control" />
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="resim_id">Resim Id</label>
+                            <h:inputText id="resim_id" value="#{filmController.film.galeri.idgaleri}" styleClass="form-control" />
+                        </div>
+                        
+                        
+                        
+                        
+                          
+                        <div class="form-group">
+                            <div class="btn-group">
+                                <h:commandButton rendered="#{filmController.film.idfilmler == null}" action="#{filmController.create}" value ="Create" styleClass="btn btn-primary" >
+                                    
+                                </h:commandButton>
+                                <h:commandButton rendered="#{filmController.film.idfilmler != null}" action="#{filmController.update}" value="Update" styleClass="btn btn-primary" >
+                                    
+                                </h:commandButton>
+                                <h:commandButton rendered="#{filmController.film.idfilmler != null}" action="#{filmController.delete}" value="Delete" styleClass="btn btn-danger" >
+                                   
+                                </h:commandButton>
+                                <h:commandButton rendered="#{filmController.film.idfilmler != null}" action="#{filmController.clearForm}" value="Clear" styleClass="btn btn-info" >
+                                   
+                                </h:commandButton>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+            </div>
+        </div>
+    </h:body>
+</html>

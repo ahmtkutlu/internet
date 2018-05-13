@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/admin/template/layout.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <h:commandLink action="#{filmController.createForm()}" value="Yeni Film"></h:commandLink>
+                    <hr />
+                    <h:dataTable value="#{filmController.listeFilm}" var="film" styleClass="table table-stripped">
+                       
+                        <h:column>
+                            <f:facet name="header">Film Id</f:facet>
+                                #{film.idfilmler}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Yonetmen Adı</f:facet>                             
+                                #{film.yonetmen.yonetmen_adi}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Yapimci Adı</f:facet>                             
+                                #{film.yapimci.yapimci_adi}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header"> Film Adı</f:facet>
+                                #{film.film_adi}
+                        </h:column>
+                         <h:column>
+                            <f:facet name="header"> Sure </f:facet>
+                                #{film.sure}
+                        </h:column>
+                         <h:column>
+                            <f:facet name="header"> Yapim Yılı</f:facet>
+                                #{film.yil}
+                        </h:column>
+                         <h:column>
+                            <f:facet name="header"> Imdb Puanı</f:facet>
+                                #{film.imdb_puani}
+                        </h:column>
+                         <h:column>
+                            <f:facet name="header"> Butce </f:facet>
+                                #{film.butce}
+                        </h:column>
+                         <h:column>
+                            <f:facet name="header"> Icerik</f:facet>
+                                #{film.icerik}
+                        </h:column>
+                        
+                        
+                        
+                        <h:column>
+                            <f:facet name="header">Islem</f:facet>
+                            <h:commandButton action="#{filmController.updateForm(film)}" value="Guncelle" styleClass="btn btn-primary"></h:commandButton>
+                            <h:commandButton action="#{filmController.delete(film)}" value="Sil" styleClass="btn btn-danger"></h:commandButton>
+                        </h:column>
+                        
+                    </h:dataTable>
+                    
+                    <div class="btn btn-group">
+                        <h:commandButton rendered="#{filmController.hasPrev()}" action="#{filmController.previous()}" value="privious" styleClass="btn btn-danger"></h:commandButton>
+                        <h:commandButton rendered="#{filmController.hasNext()}" action="#{filmController.next()}" value="next" styleClass="btn btn-primary"></h:commandButton>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

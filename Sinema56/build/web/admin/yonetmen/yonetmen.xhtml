@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="js" name="bootstrap.js"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h:form id="yonetmen-table">
+                        <h:dataTable styleClass="table table-striped table-hover" value="#{yonetmenController.listeYonetmen}" var="yonetmen">
+
+                            <h:column>
+                                <f:facet name="header">Yonetmen ID</f:facet>
+                                <h:commandLink action="#{yonetmenController.updateForm(yonetmen)}" value="#{yonetmen.idyonetmen}" >
+                                 
+                                </h:commandLink>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">AD</f:facet>
+                                    #{yonetmen.yonetmen_adi}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Soyad</f:facet>
+                                    #{yonetmen.yonetmen_soyadi}
+                            </h:column>
+                              <h:column>
+                                <f:facet name="header">Cinsiyet </f:facet>
+                                    #{yonetmen.yonetmen_cinsiyet}
+                            </h:column>
+                            
+                         </h:dataTable>
+                    </h:form>
+                </div>             
+            
+            
+                
+                
+             <div class="col-md-5">
+                    <h:form id="yonetmen-form">
+                        <div class="form-group">
+                            <label for="input_yonetmen_ad">Yonetmen Ad</label>
+                            <h:inputText id="input_yonetmen_ad" value="#{yonetmenController.yonetmen.yonetmen_adi}" styleClass="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="input_yonetmen_soyad">Yonetmen Soyad</label>
+                            <h:inputText id="input_yonetmen_soyad" value="#{yonetmenController.yonetmen.yonetmen_soyadi}" styleClass="form-control" />
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="input_yonetmen_cinsiyet">Yonetmen Cinsiyet</label>
+                            <h:inputText id="input_yonetmen_cinsiyet" value="#{yonetmenController.yonetmen.yonetmen_cinsiyet}" styleClass="form-control" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="btn-group">
+                                <h:commandButton rendered="#{yonetmenController.yonetmen.idyonetmen == null}" action="#{yonetmenController.create}" value ="Create" styleClass="btn btn-primary" >
+                                    
+                                </h:commandButton>
+                                <h:commandButton rendered="#{yonetmenController.yonetmen.idyonetmen != null}" action="#{yonetmenController.update}" value="Update" styleClass="btn btn-primary" >
+                                    
+                                </h:commandButton>
+                                <h:commandButton rendered="#{yonetmenController.yonetmen.idyonetmen != null}" action="#{yonetmenController.delete}" value="Delete" styleClass="btn btn-danger" >
+                                   
+                                </h:commandButton>
+                                <h:commandButton rendered="#{yonetmenController.yonetmen.idyonetmen != null}" action="#{yonetmenController.clearForm}" value="Clear" styleClass="btn btn-info" >
+                                   
+                                </h:commandButton>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+                
+                
+                
+            </div>                         
+        </div>
+    </h:body>
+</html>

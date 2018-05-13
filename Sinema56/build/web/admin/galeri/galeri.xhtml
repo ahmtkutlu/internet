@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/admin/template/layout.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h:form enctype="multipart/form-data" id="file-table">
+                                <h:dataTable styleClass="table table-striped" value="#{galeriController.listeGaleri}" var="galeri">
+                                    <h:column>
+                                        <f:facet name="header">ID</f:facet>
+                                            #{galeri.idgaleri}                    
+                                    </h:column>
+                              
+                                    <h:column>
+                                        <f:facet name="header">Film Adı  </f:facet>
+                                            #{galeri.film.film_adi}                    
+                                    </h:column>
+                                    
+                                    <h:column>
+                                        <f:facet name="header">Resim </f:facet>
+                                       
+                                        <p>
+                                        <h:panelGroup  rendered="#{galeri.type.contains('image')}">
+                                            <h:graphicImage value="image/#{galeri.name}" width="50" height="50"/>
+                                        </h:panelGroup> 
+                                        </p>
+                                        
+                                    </h:column>
+                                  
+                                    <h:column>
+                                        <f:facet name="header">Sil</f:facet>
+                                        <h:commandButton onclick="$('.modal').modal('show')"  styleClass="btn btn-sm btn-danger" action="#{galeriController.deleteConfirm(galeri)}" value="Sil">
+                                            <f:ajax execute="@this" render="delete-modal"/>
+                                        </h:commandButton> 
+                                    </h:column>
+                                </h:dataTable>
+                            </h:form> 
+                        </div>
+                        
+                        
+                        <div class="col-md-6">
+                            <h:form enctype="multipart/form-data" id="file-form">
+                                <div>
+                                    <label for="selectFile" >Galeri</label>
+                                    <h:inputFile value="#{galeriController.part}"/>                             
+                                </div>
+                                <div class="form-group">                           
+                                    <label for="selectFilm" >Film</label><br/>
+                                    <h:selectOneMenu  id="selectFilm" value="#{galeriController.galeri.film}" styleClass="custom-select" converter="filmConverter">
+                                        <f:selectItems value="#{galeriController.filmController.listeFilm}" var="Film" itemValue="#{Film}" itemLabel="#{Film.film_adi}"/>
+                                    </h:selectOneMenu>                            
+                                </div>
+                                <div class="form-group">
+                                    <div class="btn-group">
+                                        <h:commandButton  styleClass="btn btn-info" value="Create" action="#{galeriController.upload()}">
+                                            <f:ajax execute="file-form" render="file-form file-table"/>
+                                        </h:commandButton>
+                                        <h:commandButton action="#{galeriController.close()}" value="Close" styleClass="btn btn-l"/>
+                                    </div>
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                    <div class="modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <h:panelGroup layout="block" class="modal-content" id="delete-modal">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Delete Confirmation</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        Silmek istediğinizden emin misiniz?<br />
+                                        <b> ID : </b>#{galeriController.galeri.idgaleri}<br />
+                                        <b>Name  </b>#{galeriController.galeri.name}<br />
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <h:form>
+                                        <h:commandButton  action="#{galeriController.delete}"  value="Confirm" styleClass="btn btn-danger">
+                                            <f:ajax execute="file-form file-table" render="file-form file-table"/>
+                                        </h:commandButton> 
+                                        <h:commandButton action="#{galeriController.clearForm}" value="back" styleClass="btn btn-primary">
+                                        </h:commandButton>
+                                    </h:form>
+                                </div>
+                            </h:panelGroup>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

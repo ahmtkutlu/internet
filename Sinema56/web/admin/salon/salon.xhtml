@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="js" name="bootstrap.js"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h:form id="salon-table">
+                        <h:dataTable styleClass="table table-striped table-hover" value="#{salonController.listeSalon}" var="salon">
+
+                            <h:column>
+                                <f:facet name="header">Salon ID</f:facet>
+                                <h:commandLink action="#{salonController.updateForm(salon)}" value="#{salon.idsalon}" >
+                                    <f:ajax execute="@this" render="salon-form"/>
+                                </h:commandLink>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Sinema Adı</f:facet>
+                                    #{salon.sinema.sinemaAd}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Baslık</f:facet>
+                                    #{salon.title}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Kapasite</f:facet>
+                                    #{salon.kapasite}
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                </div>   
+
+
+
+
+
+                <div class="col-md-5">
+                    <h:form id="salon-form">
+                        <div>
+                            <p>
+                                <label for="selectSinama">Sinema AD</label>
+                                <h:selectOneMenu styleClass="custom-select" id="selectSinama" value="#{salonController.salon.sinema}" converter="sinemaConverter">
+                                    <f:selectItems  value="#{salonController.listSinama}" var="sin" itemValue="#{sin}" itemLabel="#{sin.sinemaAd}"/>
+                                </h:selectOneMenu>
+                            </p>
+                        </div>
+
+
+                        
+
+                        <div class="form-group">
+                            <label for="salon_baslik">Baslik</label>
+                            <h:inputText id="salon_baslik" value="#{salonController.salon.title}" styleClass="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="salon_kapasite">Kapasite</label>
+                            <h:inputText id="salon_kapasite" value="#{salonController.salon.kapasite}" styleClass="form-control" />
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="btn-group">
+                                <h:commandButton rendered="#{salonController.salon.idsalon == null}" action="#{salonController.create}" value ="Create" styleClass="btn btn-primary" >
+
+                                </h:commandButton>
+                                <h:commandButton rendered="#{salonController.salon.idsalon != null}" action="#{salonController.update}" value="Update" styleClass="btn btn-primary" >
+
+                                </h:commandButton>
+                                <h:commandButton rendered="#{salonController.salon.idsalon != null}" action="#{salonController.delete}" value="Delete" styleClass="btn btn-danger" >
+
+                                </h:commandButton>
+                                <h:commandButton rendered="#{salonController.salon.idsalon != null}" action="#{salonController.clearForm}" value="Clear" styleClass="btn btn-info" >
+
+                                </h:commandButton>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </h:body>
+</html>

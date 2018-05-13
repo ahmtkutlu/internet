@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/admin/template/layout.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    
+                    
+                    
+                  <div class="form-group">
+                            <label for="ad">Yonetmen Ad</label>
+                            <h:inputText id="ad" value="#{yonetmenController.yonetmen.yonetmen_adi}" styleClass="form-control" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="soyad">Yonetmen Soyad</label>
+                            <h:inputText id="soyad" value="#{yonetmenController.yonetmen.yonetmen_soyadi}" styleClass="form-control" />
+                        </div>                                              
+                        
+                        <div class="form-group">
+                            <label for="cinsiyet">yonetmen cinsiyet</label>
+                            <h:inputText id="cinsiyet" value="#{yonetmenController.yonetmen.yonetmen_cinsiyet}" styleClass="form-control" />
+                        </div>
+                                                                                                
+                    
+                    <p>
+                        <h:commandButton value="Create" action="#{yonetmenController.create}" styleClass="btn btn-primary"/>
+                    </p>
+                    <p>
+                        <h:commandButton value="Back" action="#{yonetmenController.back}" styleClass="btn btn-link" />
+                    </p>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

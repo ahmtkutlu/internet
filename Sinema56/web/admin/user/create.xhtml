@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/admin/template/layout.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    
+                    
+                    
+                  <div class="form-group">
+                            <label for="ad">User Ad</label>
+                            <h:inputText id="ad" value="#{userController.user.user_ad}" styleClass="form-control" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="soyad">User Soyad</label>
+                            <h:inputText id="soyad" value="#{userController.user.user_soyad}" styleClass="form-control" />
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="mail">User Mail</label>
+                            <h:inputText id="mail" value="#{userController.user.mail}" styleClass="form-control" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sifre">User Sifre</label>
+                            <h:inputText id="sifre" value="#{userController.user.sifre}" styleClass="form-control" />
+                        </div>
+                                                                                                
+                    
+                    <p>
+                        <h:commandButton value="Create" action="#{userController.create}" styleClass="btn btn-primary"/>
+                    </p>
+                    <p>
+                        <h:commandButton value="Back" action="#{userController.back}" styleClass="btn btn-link" />
+                    </p>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

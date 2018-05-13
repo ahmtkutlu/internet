@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="js" name="bootstrap.js"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h:form id="galeri-table">
+                        <h:dataTable styleClass="table table-striped table-hover" value="#{galeriController.listeGaleri}" var="galeri">
+
+                            <h:column>
+                                <f:facet name="header">Galeri ID</f:facet>
+                                <h:commandLink action="#{galeriController.updateForm(galeri)}" value="#{galeri.idgaleri}" >
+                                    <f:ajax execute="@this" render="galeri-form"/>
+                                </h:commandLink>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Film Adı</f:facet>
+                                    #{galeri.film.film_adi}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Resim Path</f:facet>
+                                    #{galeri.resim}
+                            </h:column>
+                       
+                     
+                         </h:dataTable>
+                    </h:form>
+                </div>   
+                
+                
+                
+                
+                
+                    <div class="col-md-5">
+                    <h:form id="galeri-form">
+                        
+                       <div>
+                            <p>
+                                <label for="selectFilm">Film AD</label>
+                                <h:selectOneMenu styleClass="custom-select" id="selectFilm" value="#{galeriController.galeri.film}">
+                                    <f:selectItems  value="#{galeriController.listFilm}" var="film" itemValue="#{film}" itemLabel="#{film.film_adi}"/>
+                                </h:selectOneMenu>
+                            </p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="galeri_path"> Resim Path</label>
+                            <h:inputText id="galeri_path" value="#{galeriController.galeri.resim}" styleClass="form-control" />
+                        </div>
+                        
+                     
+                        
+                       
+                        
+                          
+                        <div class="form-group">
+                            <div class="btn-group">
+                                <h:commandButton rendered="#{galeriController.galeri.idgaleri == null}" action="#{galeriController.create}" value ="Create" styleClass="btn btn-primary" >
+                                    
+                                </h:commandButton>
+                                <h:commandButton rendered="#{galeriController.galeri.idgaleri != null}" action="#{galeriController.update}" value="Update" styleClass="btn btn-primary" >
+                                    
+                                </h:commandButton>
+                                <h:commandButton rendered="#{galeriController.galeri.idgaleri != null}" action="#{galeriController.delete}" value="Delete" styleClass="btn btn-danger" >
+                                   
+                                </h:commandButton>
+                                <h:commandButton rendered="#{galeriController.galeri.idgaleri != null}" action="#{galeriController.clearForm}" value="Clear" styleClass="btn btn-info" >
+                                   
+                                </h:commandButton>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+            </div>
+        </div>
+    </h:body>
+</html>
